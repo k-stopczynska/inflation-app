@@ -1,12 +1,5 @@
 .form__controls {
-   border: 2px solid var(--color-borders);
-   border-radius: 8px;
-   box-shadow: 1px 3px 3px var(--color-borders);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 1.5rem;
-    width: 90%;
+    width: 100%
 }
 
 .form__control {
@@ -36,8 +29,4 @@
     opacity: .8;
 }
 
-@media (min-width: 920px) {
-    .form__controls {
-        width: 50%;
-    }
-}
+

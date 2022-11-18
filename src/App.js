@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import Header from "./components/Header";
 import Form from "./components/Form";
+import List from './components/List';
 import ThemeContext from "./contexts/theme-context";
 import "./App.css";
 
@@ -12,7 +13,7 @@ function App() {
 
   const addingNewItemHandler = (dataObj) => {
     setEnteredItems((prevState) => {
-      console.log(enteredItems);
+
       return [dataObj, ...prevState];
     });
   };
@@ -22,6 +23,7 @@ function App() {
       <Header />
       <main>
         <Form onAddingNewItem={addingNewItemHandler} />
+        {enteredItems.length > 0 ? <List itemsToRender={enteredItems} /> : <p>No items on your list!</p>}
       </main>
     </div>
   );

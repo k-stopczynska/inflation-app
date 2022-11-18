@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Card from '../UI/Card';
 import classes from "./Form.module.css";
 
 const Form = (props) => {
@@ -30,12 +31,12 @@ const Form = (props) => {
       amount: newShopItem.itemAmount,
       id: Math.random().toString()
     }
-    console.log(itemData);
     props.onAddingNewItem(itemData)
     setNewShopItem({itemTitle: '', itemAmount: ''});
   };
 
   return (
+    <Card>
     <form
       type="submit"
       className={classes.form__controls}
@@ -65,6 +66,7 @@ const Form = (props) => {
         <button type="submit">Add to list</button>
       </div>
     </form>
+    </Card>
   );
 };
 
