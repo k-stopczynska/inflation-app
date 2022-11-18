@@ -18,12 +18,20 @@ function App() {
     });
   };
 
+  const onRemovingItem = (id) => {
+    const indexToRemove = enteredItems.findIndex((item) => item.id === id);
+    setEnteredItems((prevState) => {
+      prevState.splice(indexToRemove, 1);
+      return [...prevState]
+    })
+ }
+
   return (
     <div id="app" className={themeCtx.lightMode ? "lightMode" : ""}>
       <Header />
       <main>
         <Form onAddingNewItem={addingNewItemHandler} />
-        {enteredItems.length > 0 ? <List itemsToRender={enteredItems} /> : <p>No items on your list!</p>}
+        {enteredItems.length > 0 ? <List itemsToRender={enteredItems} onRemovingItem={onRemovingItem}/> : <p>No items on your list!</p>}
       </main>
     </div>
   );

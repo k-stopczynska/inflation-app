@@ -30,3 +30,7 @@ button.lightMode {
     background: url('../assets/images/icon-moon.svg') var(--color-accent) no-repeat center center;
 }
 
+.header button:hover {
+   scale: 1.1;
+}
+
