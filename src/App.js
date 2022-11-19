@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import Header from "./components/Header";
 import Form from "./components/Form";
-import List from './components/List';
+import List from "./components/List";
 import ThemeContext from "./contexts/theme-context";
 import "./App.css";
 
@@ -13,7 +13,6 @@ function App() {
 
   const addingNewItemHandler = (dataObj) => {
     setEnteredItems((prevState) => {
-
       return [dataObj, ...prevState];
     });
   };
@@ -22,16 +21,20 @@ function App() {
     const indexToRemove = enteredItems.findIndex((item) => item.id === id);
     setEnteredItems((prevState) => {
       prevState.splice(indexToRemove, 1);
-      return [...prevState]
-    })
- }
+      return [...prevState];
+    });
+  };
 
   return (
     <div id="app" className={themeCtx.lightMode ? "lightMode" : ""}>
       <Header />
       <main>
         <Form onAddingNewItem={addingNewItemHandler} />
-        {enteredItems.length > 0 ? <List itemsToRender={enteredItems} onRemovingItem={onRemovingItem}/> : <p>No items on your list!</p>}
+        {enteredItems.length > 0 ? (
+          <List itemsToRender={enteredItems} onRemovingItem={onRemovingItem} />
+        ) : (
+          <p>No items on your list!</p>
+        )}
       </main>
     </div>
   );

@@ -5,8 +5,9 @@
 .form__control {
     display: flex;
     flex-direction: column;
-    padding: .5em;
     width: 100%;
+    padding-top: .5em;
+    padding-bottom: .5em;
 }
 
 .form__control input,

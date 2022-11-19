@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Card from '../UI/Card';
+import Button from '../UI/Button'
 import classes from "./Form.module.css";
 
 const Form = (props) => {
   const [newShopItem, setNewShopItem] = useState({itemTitle: '', itemAmount:''});
- 
 
   const titleChangeHandler = (e) => {
     setNewShopItem((prevState) => {
@@ -63,7 +63,7 @@ const Form = (props) => {
         ></input>
       </div>
       <div className={classes.form__control}>
-        <button type="submit">Add to list</button>
+        <Button type="submit">Add to list</Button>
       </div>
     </form>
     </Card>
