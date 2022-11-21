@@ -15,16 +15,10 @@ export const ThemeContextProvider = (props) => {
 
   useEffect(() => {
     localStorage.setItem("lightMode", lightMode);
-    console.log(lightMode);
   }, [lightMode]);
 
   const switchModeHandler = () => {
-    if (lightMode === false) {
-      setLightMode(true);
-    }
-    if (lightMode === true) {
-      setLightMode(false);
-    }
+    setLightMode(prevMode => !prevMode)
   };
   return (
     <ThemeContext.Provider

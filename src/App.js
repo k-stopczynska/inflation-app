@@ -1,7 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import Header from "./components/Header";
 import Form from "./components/Form";
 import List from "./components/List";
+import ShoppingList from './components/shoppingList';
 import ThemeContext from "./contexts/theme-context";
 import "./App.css";
 
@@ -10,6 +11,14 @@ const itemsToBuy = [];
 function App() {
   const themeCtx = useContext(ThemeContext);
   const [enteredItems, setEnteredItems] = useState(itemsToBuy);
+
+  useEffect(() => {
+    setEnteredItems(JSON.parse(localStorage.getItem("items")));
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("items", JSON.stringify(enteredItems));
+  }, [enteredItems]);
 
   const addingNewItemHandler = (dataObj) => {
     setEnteredItems((prevState) => {
@@ -35,6 +44,7 @@ function App() {
         ) : (
           <p>No items on your list!</p>
         )}
+        <ShoppingList itemsToRender={enteredItems} ></ShoppingList>
       </main>
     </div>
   );
