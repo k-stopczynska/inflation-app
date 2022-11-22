@@ -10,6 +10,10 @@ const ListItem = (props) => {
   const checkAsBought = (e) => {
     props.onChecked(e.target.closest('li').id)
   }
+
+  const changePriceHandler = (e) => {
+    props.onChangePrice(e, e.target.closest('li').id)
+  }
   return (
     <li className={classes.list__item}  id={props.id}>
     <input type="checkbox" onClick={checkAsBought}></input>
@@ -18,7 +22,7 @@ const ListItem = (props) => {
     <p>{props.amount}</p>
     </div>
     <button onClick={removeItemHandler}></button>
-    <input type="number" placeholder="price" min="0.01" max="9999999" step="0.01"></input>
+    <input type="number" value={props.price} placeholder="price" min="0.01" max="9999999" step="0.01" onChange={changePriceHandler}></input>
   </li>
   );
 };

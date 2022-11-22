@@ -14,15 +14,23 @@ const List = (props) => {
       props.onChecking(id)
     }
 
+    const onChangePrice = (e, id) => {
+      props.onChanging(e, id);
+    }
+
+    const getFullBillPrice = () => {
+      console.log(props.itemsToRender.filter((item) => item.bought === true).reduce((sum, item) => sum + parseFloat(item.price).toFixed(2), 0))
+    }
+
 
   return (
     <Card>
       <ul className={classes.list}>
         {props.itemsToRender.map((item) => (
-          <ListItem key={item.id} id={item.id} title={item.title} amount={item.amount} removeItem={removingItem} onChecked={onChecked}/>
+          <ListItem key={item.id} id={item.id} title={item.title} amount={item.amount} removeItem={removingItem} onChecked={onChecked} onChangePrice={onChangePrice}/>
         ))}
       </ul>
-      <Button type="button" >How much is the fish?</Button>
+      <Button type="button" onClick={getFullBillPrice}>How much is the fish?</Button>
     </Card>
   );
 };

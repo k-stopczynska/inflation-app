@@ -41,6 +41,14 @@ function App() {
     });
   };
 
+  const onChangingPrice = (e, id) => {
+const itemPriced = enteredItems.find((item) => item.id === id);
+itemPriced.price = e.target.value;
+setEnteredItems((prevState) => {
+  return [...prevState];
+})
+  }
+
   return (
     <div id="app" className={themeCtx.lightMode ? "lightMode" : ""}>
       <Header />
@@ -51,6 +59,7 @@ function App() {
             itemsToRender={enteredItems}
             onRemovingItem={onRemovingItem}
             onChecking={onCheckingItem}
+            onChanging={onChangingPrice}
           />
         ) : (
           <p>No items on your list!</p>

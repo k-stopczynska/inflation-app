@@ -30,7 +30,7 @@ const Form = (props) => {
       title: newShopItem.itemTitle,
       amount: newShopItem.itemAmount,
       id: Math.random().toString(),
-      price: 0,
+      price: '',
       bought: false
     }
     props.onAddingNewItem(itemData)
