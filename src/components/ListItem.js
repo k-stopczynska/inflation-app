@@ -17,6 +17,7 @@ const ListItem = (props) => {
   const changePriceHandler = (e) => {
     props.onChangePrice(e, e.target.closest("li").id);
     setNewPrice(e.target.value);
+    console.log(newPrice)
   };
   return (
     <li className={classes.list__item} id={props.id}>
