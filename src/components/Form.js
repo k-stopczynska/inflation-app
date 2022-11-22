@@ -29,7 +29,9 @@ const Form = (props) => {
     const itemData = {
       title: newShopItem.itemTitle,
       amount: newShopItem.itemAmount,
-      id: Math.random().toString()
+      id: Math.random().toString(),
+      price: 0,
+      bought: false
     }
     props.onAddingNewItem(itemData)
     setNewShopItem({itemTitle: '', itemAmount: ''});

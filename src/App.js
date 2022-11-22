@@ -2,7 +2,6 @@ import React, { useContext, useState, useEffect } from "react";
 import Header from "./components/Header";
 import Form from "./components/Form";
 import List from "./components/List";
-import ShoppingList from './components/shoppingList';
 import ThemeContext from "./contexts/theme-context";
 import "./App.css";
 
@@ -34,17 +33,28 @@ function App() {
     });
   };
 
+  const onCheckingItem = (id) => {
+    const itemBought = enteredItems.find((item) => item.id === id);
+    itemBought.bought = !itemBought.bought;
+    setEnteredItems((prevState) => {
+      return [...prevState];
+    });
+  };
+
   return (
     <div id="app" className={themeCtx.lightMode ? "lightMode" : ""}>
       <Header />
       <main>
         <Form onAddingNewItem={addingNewItemHandler} />
         {enteredItems.length > 0 ? (
-          <List itemsToRender={enteredItems} onRemovingItem={onRemovingItem} />
+          <List
+            itemsToRender={enteredItems}
+            onRemovingItem={onRemovingItem}
+            onChecking={onCheckingItem}
+          />
         ) : (
           <p>No items on your list!</p>
         )}
-        <ShoppingList itemsToRender={enteredItems} ></ShoppingList>
       </main>
     </div>
   );

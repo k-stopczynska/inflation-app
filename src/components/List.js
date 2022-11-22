@@ -10,14 +10,19 @@ const List = (props) => {
      props.onRemovingItem(id)
     }
 
+    const onChecked = (id) => {
+      props.onChecking(id)
+    }
+
+
   return (
     <Card>
       <ul className={classes.list}>
         {props.itemsToRender.map((item) => (
-          <ListItem key={item.id} id={item.id} title={item.title} amount={item.amount} removeItem={removingItem}/>
+          <ListItem key={item.id} id={item.id} title={item.title} amount={item.amount} removeItem={removingItem} onChecked={onChecked}/>
         ))}
       </ul>
-      <Button>Let's go and buy some things!</Button>
+      <Button type="button" >How much is the fish?</Button>
     </Card>
   );
 };
