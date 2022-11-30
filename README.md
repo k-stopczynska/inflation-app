@@ -1,3 +1,45 @@
+## Table of contents
+
+  - [Overview](#overview)
+  - [The features](#the-features)
+  - [Links](#links)
+  - [Built with](#built-with)
+  - [Author](#author)
+
+
+## Overview
+
+React application for creating shopping lists with addition of inputting prices while shopping and monitoring overall bill price.
+
+### The features
+
+Users should be able to:
+
+- View the optimal layout for the app depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Generate a new item to buy
+- Have list stored in browser storage
+- Delete item from the list
+- Mark item as bought
+- Get the overall bill price
+- Switch the theme
+
+### Links
+
+- Solution URL: https://github.com/k-stopczynska/inflation-app
+- Live Site URL: https://inflation-app.netlify.app/
+
+### Built with
+
+- React
+- CSS modules
+- Flexbox
+- Mobile-first workflow
+
+## Author
+
+- Frontend Mentor - [@k-stopczynska](https://www.frontendmentor.io/profile/k-stopczynska)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
